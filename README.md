@@ -1,17 +1,81 @@
-<<<<<<< HEAD
-# React + Vite
+# 🛒 MERN E-Commerce Website (Ongoing Project)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A full-stack **e-commerce web application** built using the **MERN stack**.  
+This project focuses on implementing real-world features such as authentication, product management, cart & order flow, and responsive UI while following clean architecture and best practices.
 
-Currently, two official plugins are available:
+> ⚠️ **Note:** This project is currently under active development. Features and structure may evolve over time.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## Expanding the ESLint configuration
+## 🚀 Features Implemented
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
-=======
-# Eshop
-A scalable full-stack e-commerce platform developed using React, Node.js, Express, and MongoDB. Features include user authentication (JWT), product listing, cart management, order tracking, and responsive UI. Actively under development.
->>>>>>> af3511b3b06d3b9a3fbdd8af959490e03b5eda4a
+- User Authentication (JWT-based)
+- User Registration & Login
+- Product Listing & Product Details
+- Shopping Cart Management
+- Order Placement & Order History
+- Protected Routes (User Authentication)
+- Responsive UI (Mobile-Friendly)
+- RESTful API Integration
+
+---
+
+## 🛠️ Tech Stack
+
+### Frontend
+- React.js
+- React Router
+- Context API (State Management)
+- Tailwind CSS
+
+### Backend
+- Node.js
+- Express.js
+- MongoDB
+- Mongoose
+- JSON Web Tokens (JWT)
+
+---
+
+## 📂 Project Structure
+
+client/ # React frontend
+server/ # Node.js & Express backend
+│
+├── controllers
+├── routes
+├── models
+├── middleware
+├── config
+
+
+---
+
+## 🔐 Authentication Flow
+
+- JWT is used for secure authentication
+- Access tokens are generated on login
+- Protected routes are secured using middleware
+- User-specific data (orders, profile) is accessible only after authentication
+
+---
+
+## 🧠 Learning Outcomes
+
+Through this project, I am learning:
+
+- How JWT authentication works (access tokens & protected routes)
+- Managing global state using Context API
+- Structuring scalable REST APIs
+- Handling real-world user flows (cart → checkout → order)
+- Making the UI fully responsive
+- Connecting frontend and backend efficiently
+- Planning to manage complex state using Redux
+
+---
+
+## ⚙️ Installation & Setup
+
+### 1️⃣ Clone the repository
+```bash
+git clone https://github.com/your-username/your-repo-name.git
