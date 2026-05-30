@@ -7,6 +7,7 @@ import { useNavigate } from 'react-router-dom'
 
 const ProductCard = ({prod}) => {
     // const {product} = useContext(ProductDataContext)
+    const [addedToCart, setAddedToCart] = useState(false)
 
     const {addToCart} = useContext(CartDataContext)
     
@@ -59,10 +60,14 @@ const ProductCard = ({prod}) => {
             </div>
             
             <div className='flex items-center justify-between px-1'>
-              <span className='text-xl font-bold'>${prod.price}</span>
-              <button className='bg-black text-white px-4 py-2 rounded-md text-sm font-semibold active:scale-95'
+              <span className='text-xl font-bold'>₹{prod.price}</span>
+              <button 
+              // disabled={!addedToCart}
+              className={ `bg-black text-white px-4 py-2 rounded-md text-sm font-semibold active:scale-95`}
                 onClick={()=> {
                     addToCart(prod._id)
+                    // setAddedToCart(true)
+
                 }}
               >
                 Add to Cart

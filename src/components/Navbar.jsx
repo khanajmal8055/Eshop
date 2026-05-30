@@ -1,28 +1,35 @@
-import { useContext, useState , useEffect } from 'react'
+import { useContext, useState , useEffect, useEffectEvent } from 'react'
 
 import { ShoppingCart, User , Menu, X } from 'lucide-react'
 import { Link } from 'react-router-dom'
 import { UserDataContext } from '../context/UserContext'
 import axios from "../api/axiosInstance"
+import { OrderDataContext } from '../context/OrderContext'
 
 
 const Navbar = () => {
   const [mobileMenu, setMobileMenu] = useState(false)
-  const {userData , login ,setLogin , logout , setLogout} = useContext(UserDataContext)
+  const {userData , login ,setLogin , logout , setLogout , setUserData} = useContext(UserDataContext)
+  const {setOrders} = useContext(OrderDataContext)
   // const [logout, setLogout] = useState(false)
-
   console.log(login);
+  
+
+  // console.log(login);
   const userName = userData.fullname;
   const intialName = userName?.charAt(0)
-  console.log(intialName);
+  // console.log(intialName);
 
 
 
   const handleLogout = async() => {
-      setLogin(false)
     try {
       await axios.post('/users/logout')
-      setLogout(true)
+      setLogin(!login)
+      // setUserData([])
+      // setOrders([])
+      
+      
     } 
     catch (error) {
       console.error(error)  
@@ -30,7 +37,7 @@ const Navbar = () => {
     
   }
 
-  console.log(logout);
+  // console.log(logout);
   
 
   
@@ -64,12 +71,13 @@ const Navbar = () => {
             <div className='rounded-full bg-black text-white font-bold cursor-pointer h-10 w-10 inline-flex justify-center items-center'><p>{intialName}</p></div> 
 
             )}
-
-            {logout && (
+               
+            {!login && (
               <Link to='/login'>
                 <User className='cursor-pointer active:scale-95' />
               </Link>
             )}
+            
             
             
             
@@ -82,11 +90,14 @@ const Navbar = () => {
             {mobileMenu ? "" : <Menu/>}
             </button>
           </div>
-          <div>
+          {login && (
+            <div>
             <button onClick={() => {
               handleLogout()
             }}>Logout</button>
           </div>
+          )}
+          
         </div>
         
 

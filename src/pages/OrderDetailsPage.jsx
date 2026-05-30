@@ -41,7 +41,8 @@ export const OrderDetailsPage = () => {
           <div className="w-14"></div>
         </nav>
       </header>
-      <main className="max-w-6xl mx-auto px-4 py-6 sm:py-8">
+      {orderDetails.length === 0 ? <p>Loading...</p> : 
+        <main className="max-w-6xl mx-auto px-4 py-6 sm:py-8">
         <div className="space-y-6">
           <div className="bg-white rounded-xl border border-gray-200 p-4 sm:p-6 shadow-sm">
             <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-4 pb-4 border-b border-gray-200">
@@ -97,11 +98,11 @@ export const OrderDetailsPage = () => {
                   <div className="flex-1 min-w-0">
                     <p className="text-sm sm:text-base font-semibold text-gray-900 mb-1">{item.name}</p>
                     <p className="text-xs sm:text-sm text-gray-600">Quantity: {item.quantity}</p>
-                    <p className="text-sm sm:text-base text-gray-600 mt-1">${item.price.toFixed(2)} each</p>
+                    <p className="text-sm sm:text-base text-gray-600 mt-1">₹{item.price.toFixed(2)} each</p>
                   </div>
                   <div className="text-right">
                     <p className="text-sm sm:text-base font-bold text-gray-900">
-                      ${(item.price * item.quantity).toFixed(2)}
+                      ₹{(item.price * item.quantity).toFixed(2)}
                     </p>
                   </div>
                 </div>
@@ -114,11 +115,11 @@ export const OrderDetailsPage = () => {
             <div className="space-y-3">
               <div className="flex justify-between text-sm text-gray-600">
                 <span>Items Total</span>
-                <span className="text-gray-900 font-medium">${orderDetails.totalAmount}</span>
+                <span className="text-gray-900 font-medium">₹{orderDetails.totalAmount}</span>
               </div>
               <div className="flex justify-between text-sm text-gray-600">
                 <span>Shipping</span>
-                <span className="text-gray-900 font-medium">${orderDetails.shippingFee}</span>
+                <span className="text-gray-900 font-medium">₹{orderDetails.shippingFee}</span>
               </div>
               <div className="flex justify-between text-sm text-gray-600">
                 {/* <span>Tax</span> */}
@@ -126,7 +127,7 @@ export const OrderDetailsPage = () => {
               </div>
               <div className="flex justify-between text-base font-bold text-gray-900 pt-3 border-t border-gray-200">
                 <span>Grand Total</span>
-                <span>${orderDetails.finalAmount}</span>
+                <span>₹{orderDetails.finalAmount}</span>
               </div>
             </div>
           </div>
@@ -148,6 +149,8 @@ export const OrderDetailsPage = () => {
           </div>
         </div>
       </main>
+      }
+      
     </div>
   )
 }

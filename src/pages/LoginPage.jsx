@@ -24,7 +24,7 @@ const Login = () => {
             // localStorage.setItem('token' , res.data.token)
             setMessage('Logged In Successfully')
             setLogin(true)
-            setLogout(false)
+            // setLogout(false)
             navigate("/")
         } catch (error) {
             setMessage(error.response?.data?.message || 'Failed to Login')

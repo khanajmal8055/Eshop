@@ -1,5 +1,6 @@
 import React, { createContext, useState } from 'react'
 import axios from '../api/axiosInstance'
+import { useNavigate } from 'react-router-dom'
 
 export const CheckoutDataContext = createContext()
 
@@ -7,6 +8,8 @@ const CheckoutContext = ({children}) => {
     const [selectedAddress, setSelectedAddress] = useState(null)
     const [paymentMethod, setPaymentMethod] = useState(null)
     const [isPlacingOrder, setIsPlacingOrder] = useState(false)
+
+    const navigate = useNavigate()
 
     const placeOrder = async() => {
         if(!selectedAddress || !paymentMethod) return;
@@ -33,6 +36,8 @@ const CheckoutContext = ({children}) => {
         setTimeout(() => {
             setIsPlacingOrder(false);
             alert("Order Placed Successfully")
+            navigate('/')
+
         },1000)
     }
   return (

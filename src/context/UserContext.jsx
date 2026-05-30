@@ -24,18 +24,20 @@ const UserContext = ({children}) => {
     // }
 
     
-    
+    const getProfile = async()=>{
+      try {
+        const response = await axios.get('/users/view-profile')
+        setUserData(response.data.data);
+        setLogin(true)
+      } 
+      catch (error) {
+        console.log(error);
+        
+      }
+    }
 
     useEffect(()=>{
-        async function hello(){
-             const response = await axios.get('/users/view-profile')
-             setUserData(response.data.data)
-             setLogin(true)
-            
-        }
-
-        hello()
-        
+        getProfile()
     },[login])
 
     
@@ -52,7 +54,7 @@ const UserContext = ({children}) => {
     
     
   return (
-    <UserDataContext.Provider value={{userData , login ,logout, setLogin , setLogout}}>
+    <UserDataContext.Provider value={{userData , login ,logout, setLogin , setLogout , setUserData}}>
         {children}
     </UserDataContext.Provider>
   )

@@ -1,11 +1,13 @@
-import React, { createContext, useEffect, useState } from 'react'
+import React, { createContext, useContext, useEffect, useState } from 'react'
 import axios from '../api/axiosInstance'
+import { UserDataContext } from './UserContext'
 
 export const OrderDataContext = createContext()
 
 const OrderContext = ({children}) => {
     const [orders, setOrders] = useState([])
     const [orderDetails , setOrderDetails] = useState([])
+    const {login} = useContext(UserDataContext)
     
     const getAllOrderDetails = async()=>{
         try {
@@ -35,7 +37,7 @@ const OrderContext = ({children}) => {
 
     useEffect(()=>{
         getAllOrderDetails()
-    },[])
+    },[orders,login])
   return (
     <OrderDataContext.Provider value={{orders , orderDetailsById,orderDetails}}>
         {children}

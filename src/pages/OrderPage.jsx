@@ -4,8 +4,9 @@ import { useNavigate } from 'react-router-dom';
 
 const OrderPage = () => {
     const {orders} = useContext(OrderDataContext)
+    
 
-    console.log(orders);
+    // console.log(orders);
     
     
     
@@ -31,6 +32,7 @@ const OrderPage = () => {
 
 
     const handleNavigate = (id) => {
+        
         navigate(`/order/${id}`)
     }
 
@@ -73,7 +75,7 @@ const OrderPage = () => {
                     <p className="text-sm text-gray-600">Placed on {formatDate(order.createdAt)}</p>
                   </div>
                   <div className="text-right">
-                    <p className="text-lg font-bold text-gray-900">${order.finalAmount}</p>
+                    <p className="text-lg font-bold text-gray-900">₹{order.finalAmount}</p>
                     <p className="text-xs text-gray-600">{order.items.length} {order.items.length === 1 ? "item" : "items"}</p>
                   </div>
                 </div>
@@ -90,7 +92,7 @@ const OrderPage = () => {
                         <p className="text-sm sm:text-base font-semibold text-gray-900 truncate">{item.name}</p>
                         <p className="text-xs sm:text-sm text-gray-600 mt-1">Quantity: {item.quantity}</p>
                         <p className="text-sm sm:text-base font-bold text-gray-900 mt-1">
-                          ${(item.price * item.quantity).toFixed(2)}
+                          ₹{(item.price * item.quantity).toFixed(2)}
                         </p>
                       </div>
                     </div>

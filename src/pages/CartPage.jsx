@@ -10,9 +10,9 @@ const CartPage = () => {
 
     // const [quantity, setQuantity] = useState(1)
 
-    const shipping = totalPrice > 0 ? 9.99 : 0;
-    const tax = totalPrice * 0.08;
-    const total = totalPrice + shipping + tax;
+    const shipping = totalPrice > 0 ? 50 : 0;
+    // const tax = totalPrice * 0.08;
+    const total = totalPrice + shipping 
 
 
     const handleDecreaseQuantity = (productId , quantity) => {
@@ -92,7 +92,7 @@ const CartPage = () => {
                   <div className="flex-1 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
                     <div className="flex-1 space-y-1">
                       <h3 className="text-lg font-semibold text-gray-900">{item.name}</h3>
-                      <p className="text-lg font-bold text-gray-900">${item.price.toFixed(2)}</p>
+                      <p className="text-lg font-bold text-gray-900">₹{item.price.toFixed(2)}</p>
                     </div>
                     <div className="flex items-center gap-4">
                       <div className="flex items-center border border-gray-300 rounded-lg">
@@ -144,19 +144,19 @@ const CartPage = () => {
               <div className="space-y-3 pt-2 border-t border-gray-200">
                 <div className="flex justify-between text-sm text-gray-600">
                   <span>Subtotal</span>
-                  <span className="text-gray-900 font-medium">${totalPrice}</span>
+                  <span className="text-gray-900 font-medium">₹{totalPrice}</span>
                 </div>
                 <div className="flex justify-between text-sm text-gray-600">
                   <span>Shipping</span>
-                  <span className="text-gray-900 font-medium">${shipping}</span>
+                  <span className="text-gray-900 font-medium">₹{shipping}</span>
                 </div>
-                <div className="flex justify-between text-sm text-gray-600">
+                {/* <div className="flex justify-between text-sm text-gray-600">
                   <span>Tax</span>
-                  <span className="text-gray-900 font-medium">${tax}</span>
-                </div>
+                  <span className="text-gray-900 font-medium">₹{tax}</span>
+                </div> */}
                 <div className="flex justify-between text-base font-bold text-gray-900 pt-3 border-t border-gray-200">
                   <span>Total</span>
-                  <span>${total}</span>
+                  <span>₹{total}</span>
                 </div>
               </div>
               <button
